@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Riiif::Image.file_resolver = Riiif::HTTPFileResolver.new
 Riiif::Image.info_service = lambda do |id, _file|
   # id will look like a path to a pcdm:file
@@ -9,6 +11,7 @@ Riiif::Image.info_service = lambda do |id, _file|
   resp = ActiveFedora::SolrService.get("id:#{fs_id}")
   doc = resp['response']['docs'].first
   raise "Unable to find solr document with id:#{fs_id}" unless doc
+
   { height: doc['height_is'], width: doc['width_is'] }
 end
 

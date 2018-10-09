@@ -1,0 +1,42 @@
+
+AllCops:
+  TargetRubyVersion: 2.3
+  DisplayCopNames: true
+  Exclude:
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'vendor/**/*'
+    - 'test/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/actors/hyrax/actors/messaging_actor_spec.rb'
+    - 'app/controllers/catalog_controller.rb'
+    - 'spec/features/create_generic_work_spec.rb'
+Metrics/ClassLength:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
+
+Metrics/LineLength:
+  Exclude:
+    - 'spec/actors/hyrax/actors/messaging_actor_spec.rb'
+    - 'app/actors/hyrax/actors/messaging_actor.rb'
+    - 'spec/services/messaging_client_spec.rb'
+    - 'app/controllers/catalog_controller.rb'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'spec/features/create_generic_work_spec.rb'
+    - 'app/models/solr_document.rb'
+    - 'app/models/search_builder.rb'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false

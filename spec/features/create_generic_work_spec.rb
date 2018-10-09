@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Generated via
 #  `rails generate hyrax:work GenericWork`
 require 'rails_helper'
@@ -32,22 +34,22 @@ RSpec.feature 'Create a GenericWork', js: false do
 
     scenario do
       visit '/dashboard'
-      click_link "Works"
-      click_link "Add new work"
+      click_link 'Works'
+      click_link 'Add new work'
 
       # If you generate more than one work uncomment these lines
       # choose "payload_concern", option: "GenericWork"
       # click_button "Create work"
 
-      expect(page).to have_content "Add New Generic work"
-      click_link "Files" # switch tab
-      expect(page).to have_content "Add files"
-      expect(page).to have_content "Add folder"
+      expect(page).to have_content 'Add New Generic work'
+      click_link 'Files' # switch tab
+      expect(page).to have_content 'Add files'
+      expect(page).to have_content 'Add folder'
       within('span#addfiles') do
-        attach_file("files[]", "#{Hyrax::Engine.root}/spec/fixtures/image.jp2", visible: false)
-        attach_file("files[]", "#{Hyrax::Engine.root}/spec/fixtures/jp2_fits.xml", visible: false)
+        attach_file('files[]', "#{Hyrax::Engine.root}/spec/fixtures/image.jp2", visible: false)
+        attach_file('files[]', "#{Hyrax::Engine.root}/spec/fixtures/jp2_fits.xml", visible: false)
       end
-      click_link "Descriptions" # switch tab
+      click_link 'Descriptions' # switch tab
       fill_in('Title', with: 'My Test Work')
       fill_in('Creator', with: 'Doe, Jane')
       fill_in('Keyword', with: 'testing')
@@ -63,7 +65,7 @@ RSpec.feature 'Create a GenericWork', js: false do
 
       click_on('Save')
       expect(page).to have_content('My Test Work')
-      expect(page).to have_content "Your files are being processed by Hyrax in the background."
+      expect(page).to have_content 'Your files are being processed by Hyrax in the background.'
     end
   end
 end
